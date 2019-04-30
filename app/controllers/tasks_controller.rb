@@ -24,13 +24,13 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @tasks = Task.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def update
     @task = Task.find(params[:id])
 
-    if @message.update(message_params)
+    if @task.update(task_params)
       flash[:success] = 'Task は正常に更新されました'
       redirect_to @task
     else
