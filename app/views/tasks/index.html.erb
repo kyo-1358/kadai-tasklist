@@ -4,12 +4,18 @@
   
 <% @tasks.each do |task| %>
 
-    <li>
+<li>
+  <%= task.status %>
+</li>
+
+<li>
 <%= link_to task.id, task %>
  :
-<%= task.content %>
+<%= task.content %>　
 </li>
-  
+
+
+ 
 <% end %>
 
 </ul>
