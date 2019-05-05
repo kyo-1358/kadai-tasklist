@@ -19,10 +19,10 @@
   
 <% end %>
 
-<%= f.label :content, 'ステータス' %>
-
-  
-<%= f.text_field :status %>
+<div class = "form-group">
+<%= f.label :status, 'ステータス' %>
+<%= f.select :status, [["済"], ["未"]], class: 'form-control' %>
+</div>
   
   
 <%= f.label :content, 'タスク' %>
