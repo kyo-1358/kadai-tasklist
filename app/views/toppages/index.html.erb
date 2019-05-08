@@ -4,7 +4,17 @@ Tasklist トップ
 </h1>
 </div>
 
-<ul>
+<% if logged_in? %>
+
+  <p>ログイン完了ユーザ: 
+<%= current_user.name %>
+</p>
+<%= link_to 'ログアウト', logout_path, method: :delete %>
+<% else %>
+
+<div>
 <%= link_to 'ユーザー登録', signup_path %>
-<li><a href="#">ログイン</a></li>
-</ul>
+<%= link_to 'ログイン', login_path %>
+</div>
+
+<% end %>
