@@ -1,4 +1,4 @@
-<div class="text-center">
+<div>
 <h1>
 Tasklist トップ
 </h1>
@@ -6,10 +6,31 @@ Tasklist トップ
 
 <% if logged_in? %>
 
-  <p>ログイン完了ユーザ: 
-<%= current_user.name %>
-</p>
-<%= link_to 'ログアウト', logout_path, method: :delete %>
+<div>
+<%= form_with(model: @task, local: true) do |f| %>
+
+<div>
+<%= f.label :status, 'ステータス' %>
+<%= f.select :status, [["済"], ["未"]] %>
+</div>
+        <div>
+          
+<%= f.text_area :content %>
+
+        </div>
+        
+<%= f.submit '作成' %>
+
+<% end %>
+
+  <div>
+<%= render 'tasks/tasks', tasks: @tasks %>
+  </div>
+  
+ <%= link_to 'ログアウト', logout_path, method: :delete %>
+</div>
+
+
 <% else %>
 
 <div>

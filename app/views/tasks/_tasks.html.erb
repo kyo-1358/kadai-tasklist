@@ -1,0 +1,27 @@
+<% tasks.each do |task| %>
+
+<div>
+<%= link_to task.user.name, user_path(task.user) %>
+ <span>posted at 
+<%= task.created_at %>
+</span>
+</div>
+
+<li>
+
+<%= link_to task.id, task %>
+ :
+<%= task.status %>
+  &gt;
+<%= task.content %>　
+</li>
+
+<% if current_user == task.user %>
+
+            
+<%= link_to "削除", task, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+
+<% end %>
+<% end %>
+
+ <%= paginate tasks %>
