@@ -9,18 +9,19 @@ Tasklist トップ
 <%= current_user.name %>
 </p>
 
-<div>
 <%= form_with(model: @task, local: true) do |f| %>
+
+<%= render 'layouts/error_messages', model: f.object %>
 
 <div>
 <%= f.label :status, 'ステータス' %>
 <%= f.select :status, [["済"], ["未"]] %>
 </div>
-        <div>
-          
-<%= f.text_area :content %>
 
-        </div>
+<div>
+<%= f.label :content, 'タスク' %>
+<%= f.text_area :content %>
+</div>
         
 <%= f.submit '作成' %>
 
